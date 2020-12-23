@@ -1,0 +1,547 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>  
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!--  Hero Section -->
+
+  <section id="hero">
+    <div class="hero-container">
+      <div class="wow fadeIn">
+        <div class="hero-logo">
+          <img src="{% static 'assets/img/logo.png' %}" alt="Logo">
+        </div>
+
+        <h1>On Fleek Salon & Spa</h1>
+        <h2>Welcome <span class="rotating">to the best beauty Salon & Spa in India!</span></h2>
+        <div class="actions">
+          <a href="#about" class="btn-get-started">Get Started</a>
+          <a href="#services" class="btn-services">Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- End Hero -->
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <a href="#"><img src="{% static 'assets/img/logo.png' %}" alt=""></a>      
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Customer Reviews</a></li>
+          <li><a href="#team">Team</a></li>
+
+
+          {% if user.is_authenticated %}
+          <li><a href = "accounts/logout">Logout</a></li>
+
+          {% else %}
+
+          <li><a href="accounts/register">Signup</a></li>
+          <li><a href="accounts/login">Login</a></li>
+
+          {% endif %}
+
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li class="menu-has-children"><a href="#">Register</a>
+                
+              </li>
+              <li><a href="#">Our Products</a></li>
+              <li><a href="#">Our Salon Team</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+    {% if user.is_authenticated %}
+    <h3 class="section-title">Hello, {{user.username}}</h3>
+    {% endif %}
+    <!-- About Section -->
+    <section id="about">
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title">About Us</h3>
+            <div class="section-title-divider"></div>
+            <p class="section-description">OUR CENTERS: Vellore || Indore || Varanasi || Pune </p>
+          </div>
+        </div>
+      </div>
+      <div class="container about-container wow fadeInUp">
+        <div class="row">
+
+          <div class="col-lg-6 about-img">
+            <img src="{% static 'assets/img/about-img.jpg' %}" alt="Salon interior">
+          </div>
+
+          <div class="col-md-6 about-content">
+            <h2 class="about-title">WHAT MAKES US DIFFERENT?<br>We provide great services and beauty suggestions using Machine Learning Technology!</h2>
+            <p class="about-text">
+             On Fleek Salon & Spa offers all of the creative, healthy hair care services and beauty treatment products you seek from a salon inside of a tranquil, professional atmosphere. Located in 4 cities in India- Vellore, Indore, Varanasi, and Pune our technicians and licensed stylists offer a wide range of services tailored for women.
+Total client satisfaction is our top priority, and we work to ensure that daily by providing friendly, timely service, as well as one-on-one consultations that allow clients to share the unique vision for their hair care and beauty needs. Call or visit our salon today for appointment scheduling and detailed information about our services.
+            </p>
+            <p class="about-text">
+             The best salon in this part of India with an ever increasing exceptional service delivery,committed to bringing out your Extraordinary beauty. On Fleek Salon & Spa is a well finished 5-star salon and spa, laid out in its own world of a fabulous and luxurious environment, a world of exceptional taste and style dedicated to the classy and sophisticated make over for very taste-conscious and important people. 
+            </p>
+            <p class="about-text">
+             Our beauty parlour is designed with contemporary elegance, and combines the most respected hair, nails and facial beauty treatment methods known to mankind with the most unique and unforgettable hospitality and stylish finish.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title">Our Services</h3>
+            <div class="section-title-divider"></div>
+            <p class="section-description">Explore the features provided by our Salon & Spa here!</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 service-item">
+            <div class="service-icon"><i class="fa fa-desktop"></i></div>
+            <h4 class="service-title"><a href="">Book Appointments Online!</a></h4>
+            <p class="service-description">After signing up on our website, all you have to do is fill up your basic credentials and your city and preferred slot for an appointment</p>
+          </div>
+          <div class="col-md-4 service-item">
+            <div class="service-icon"><i class="fa fa-bar-chart"></i></div>
+            <h4 class="service-title"><a href="">Choose your own Stylists!</a></h4>
+            <p class="service-description">While booking an appointment online, you have the liberty to choose who you want to get a haircut or spa service from</p>
+          </div>
+          <div class="col-md-4 service-item">
+            <div class="service-icon"><i class="fa fa-paper-plane"></i></div>
+            <h4 class="service-title"><a href="">First Free Trial</a></h4>
+            <p class="service-description">Our first 50 customers who book a slot online will get a free beauty treatment</p>
+          </div>
+          <div class="col-md-4 service-item">
+            <div class="service-icon"><i class="fa fa-photo"></i></div>
+            <h4 class="service-title"><a href="">Easy and secure Payment options</a></h4>
+            <p class="service-description">The best part about this all is that you don't have to pay any money beforehand. After availing our services, you may pay by cash or any other method in the parlour itself.</p>
+          </div>
+          <div class="col-md-4 service-item">
+            <div class="service-icon"><i class="fa fa-road"></i></div>
+            <h4 class="service-title"><a href="">Beauty recommendations</a></h4>
+            <p class="service-description">Our Machine Learning software suggests the kind of beauty treatment you might be looking for to get a flawless book. Since we have used IBM Watson Studio for image recognition and our beauty experts have provided 100s of inputs to the Watson studio to come up with an optimal beauty treatment, we gurantee you the perfect look!</p>
+          </div>
+          <div class="col-md-4 service-item">
+            <div class="service-icon"><i class="fa fa-shopping-bag"></i></div>
+            <h4 class="service-title"><a href="">Off Hours Booking</a></h4>
+            <p class="service-description">Our website functions 24x7. You may book an appointment whenever you feel like</p>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    <!--Subscrbe Section-->
+    <section id="subscribe">
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-8">
+            <h3 class="subscribe-title">Check Out Our Video</h3>
+            <p class="subscribe-text">Here is a glimpse of how our Salon & Spa works!</p>
+          </div>
+          <div class="col-md-4 subscribe-btn-container">
+            <a class="subscribe-btn" href="#">Watch Video</a>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Subscrbe Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title">Portfolio</h3>
+            <div class="section-title-divider"></div>
+            <p class="section-description">Here are some pictures that might fascinate you!</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Haircuts</li>
+              <li data-filter=".filter-card">Products</li>
+              <li data-filter=".filter-web">Makeup</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Haircuts</h4>
+              <p>Styling</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Simple MakeUp</h4>
+              <p>MakeUp</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-2.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Hair Smoothening</h4>
+              <p>Treatments</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-3.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="App 2"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Hair Products</h4>
+              <p>Products</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-4.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="{% static 'assets/img/portfolio/portfolio-5.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Bridal MakeUp</h4>
+              <p>MakeUp</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-5.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="Web 2"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <img src="{% static 'assets/img/portfolio/portfolio-6.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Hair Coloring</h4>
+              <p>Styling</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-6.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="App 3"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="{% static 'assets/img/portfolio/portfolio-7.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Body Products</h4>
+              <p>Products</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-7.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="Card 1"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <img src="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>Face Products</h4>
+              <p>Products</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-8.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="Card 3"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <img src="{% static 'assets/img/portfolio/portfolio-9.jpg' %}" class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4>MakeUp Tutorial</h4>
+              <p>Coming Up Soon</p>
+              <a href="{% static 'assets/img/portfolio/portfolio-9.jpg' %}" data-gall="portfolioGallery" class="venobox preview-link" title="Web 3"><i class="fa fa-plus"></i></a>
+              <a href="accounts/portfolio" class="details-link" title="More Details"><i class="fa fa-link fa-flip-horizontal"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- Customer reviews Section -->
+    <section id="testimonials">
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title">Customer Reviews</h3>
+            <div class="section-title-divider"></div>
+            <p class="section-description">Here are some of our top Customer Reviews!</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="profile">
+              <div class="pic"><img src="{% static 'assets/img/client-1.jpg' %}" alt="Saloni"></div>
+              <h4>Saloni Singh Jhala</h4>
+              <span>Profession: Model</span>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="quote">
+              <b><img src="{% static 'assets/img/quote_sign_left.png' %}" alt=""></b> I am a model working in Pune and I was simply looking for a stylish haircut.I was browsing through On Fleek Salon & Spa website and found this feature to upload an image to get beauty suggestions. Their 
+latest Machine Learning Software indicated that I needed an Acne Removal Cream. I immediately booked an appoitment for a stylish haircut and a facial online. My booking was approved immediately. After availing their services, I feel amazing and confident about my skin and an awesome new haircut! &#128513;<small><img src="{% static 'assets/img/quote_sign_right.png' %}" alt=""></small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+            <div class="quote">
+              <b><img src="{% static 'assets/img/quote_sign_left.png' %}" alt=""></b> I am a Fashion Designer based in Indore. I was looking for a bridal makeup appointment for my Cousin's wedding. I found On Fleek Salon and Spa on the Internet and I was impressed by a variety
+of herbal products they put up in their catalog. I booked an appointment for a full body spa and bridal makeup. I was highly satisfied by the customer care provided by OnFleek! <small><img src="{% static 'assets/img/quote_sign_right.png' %}" alt=""></small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="profile">
+              <div class="pic"><img src="{% static 'assets/img/client-2.jpg' %}" alt="Harshita"></div>
+              <h4>Harshita Prashar</h4>
+              <span>Profession: Fashion Designer</span>
+            </div>
+          </div>
+        </div>
+
+   <div class="row">
+          <div class="col-md-3">
+            <div class="profile">
+              <div class="pic"><img src="{% static 'assets/img/client-3.jpg' %}" alt="Ayushi"></div>
+              <h4>Ayushi Banerjee</h4>
+              <span>Profession: Housewife</span>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="quote">
+              <b><img src="{% static 'assets/img/quote_sign_left.png' %}" alt=""></b> I'm a researcher based in Brazil and i came down to Varanasi for my wedding. I was recommended On Fleek Salon and Spa which provides all-round services for all the pre and post wedding ceremonies.The products used were of high quality and the makeup and skin+hair care was flawless. I was satisfied with the work done by the whole team and would certainly contact them for any such occasion in the future.<small><img src="{% static 'assets/img/quote_sign_right.png' %}" alt=""></small>
+            </div>
+          </div>
+        </div>
+
+ <div class="row">
+          <div class="col-md-9">
+            <div class="quote">
+              <b><img src="{% static 'assets/img/quote_sign_left.png' %}" alt="Gauri"></b> I am a lawyer based in New York. I came back to my hometown,  Vellore for my friend's baby shower. The herbal products available on On Fleek is just fabulous. I have never been this satisfied after getting a full body wax from anywhere across the globe expect On Fleek! <small><img src="{% static 'assets/img/quote_sign_right.png' %}" alt=""></small>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="profile">
+              <div class="pic"><img src="{% static 'assets/img/client-4.jpg' %}" alt="Harshita"></div>
+              <h4>Gauri Jain</h4>
+              <span>Profession: Lawyer</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team">
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title">Our Team</h3>
+            <div class="section-title-divider"></div>
+            <p class="section-description">The developers of this website are:</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/team/team-1.jpg' %}" alt=""></div>
+              <h4>Aashita Gloria Noah</h4>
+              <span>FrontEnd Developer</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/xGloriaxx/"><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/team/team-2.jpg' %}" alt=""></div>
+              <h4>Priyanshi Jain</h4>
+              <span>ML Developer</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/team/team-3.jpg' %}" alt=""></div>
+              <h4>Hrutvika Muttepwar</h4>
+              <span>BackEnd Developer</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact">
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title">Contact Us</h3>
+            <div class="section-title-divider"></div>
+            <p class="section-description">In case of any complaints or feedback, you may contact our team</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-md-4">
+            <div class="info">
+              <div>
+                <i class="fa fa-map-marker"></i>
+                <p>VIT University <br>Vellore,  632014</p>
+              </div>
+
+              <div>
+                <i class="fa fa-envelope"></i>
+                <p>salonandspa@onfleek.com</p>
+              </div>
+
+              <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 9427864905</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <div class="form">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validate"></div>
+                </div>
+                <div class="mb-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="copyright">
+            &copy; Copyright <strong>On Fleek Salon & Spa </strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by Aashita | Priyanshi | Hrutvika
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/wow/wow.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'assets/vendor/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/hoverIntent/hoverIntent.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/morphext/morphext.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

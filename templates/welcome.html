@@ -1,0 +1,108 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">   
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static './css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Welcome!</title>
+    
+
+   <style>      
+
+.a {
+  font: italic bold 20px Georgia, serif;
+}
+.tab {
+position:absolute;right:100px; 
+}
+
+.cquotes{
+text-align: center;
+}
+
+.btn-group button {
+  background-color: #800000; /* Maroon background */
+  border: 1px solid black; /* Green border */
+  color: white; /* White text */
+  padding: 35px 100px 50px;
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #CD5C5C; /* Indian red */
+}
+
+</style>
+
+   
+</head>
+
+<body
+    style="background-image: url('/static/assets/img/Welcomebg.jpeg');background-repeat: no-repeat;background-position: center; background-attachment: fixed;  background-size:cover; background-color:gray ">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/"><img src="{% static 'assets/img/logo.png' %}"width="40" ><div class="a">On Fleek Salon & Spa                     <span class="tab"> Welcome Dear Customer <img src="{% static 'assets/img/myprofile.jpeg' %}"width="40" ></span> </div> </a>  
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+        </div>
+    </nav>
+<br>
+<br>
+<br>
+
+  <!--MAIN CONTENT FOR TABS-->
+    <div class="tab-content">
+      <div role="tab-panel" class="tab-pane fade show active" >
+<div class="cquotes">
+        <h3 class="page2-heading col-12">
+         <b><i> "Inner beauty is great but a little hairspray doesn't hurt" </b></i>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div class="btn-group" style="width:100%">
+  <!--
+  <button style="width:33.3%"> <a href="accounts/portfolio"><b>View Portfolio</b></a></button>
+  <button style="width:33.3%" src="https://makeup.pho.to/?from=mobile-promo-page"><b>Beautify your image</b></button>
+  <button style="width:33.3%" href="accounts/appointment"><b>Book an Appointment</b></button>
+  -->
+  <li style="width:33.3%"><a href="portfolio">View Portfolio</a></li>
+  <li style="width:33.3%"><a href="beautify">Beautify your image</a></li>
+  <li style="width:33.3%"><a href="appointment">Book An Appointment</a></li>
+</div>           
+  
+
+{% if user.is_authenticated %}
+    <h3 style="text-align: center;" class="section-title">Hello, {{user.username}}</h3>
+{% endif %}
+
+</body>
+
+</html>
